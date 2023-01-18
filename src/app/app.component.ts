@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,11 @@ export class AppComponent {
   public appPages = [
     { title: 'Main', url: '/main', icon: 'paper-plane' },
     { title: 'Settings', url: '/settings', icon: 'hammer' },
+    { title: 'Log Out', url: '/sign-in', icon: 'exit' },
   ];
-  constructor() {}
+  constructor(private readonly router: Router) {}
+
+  public logOut(): void {
+    this.router.navigate(['/sign-in'])
+  }
 }
